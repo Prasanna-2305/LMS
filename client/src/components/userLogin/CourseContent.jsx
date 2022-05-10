@@ -62,7 +62,7 @@ export default function CourseContent() {
     <h1>{allCourses.title}</h1>
     <div className='row'>
       <div className='col-md-6 col-lg-6 col-xl-6'>
-        <center><ReactPlayer url={allCourses.video} width={300} height={200} /></center>
+        <center><ReactPlayer controls url={allCourses.video} width={300} height={200} /></center>
         <pre>{allCourses.content} </pre>
         <img src={allCourses.file} width={300} height={280} />
       </div>

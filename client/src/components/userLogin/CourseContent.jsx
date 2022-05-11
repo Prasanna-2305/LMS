@@ -74,7 +74,6 @@ export default function CourseContent() {
         <br />
         <div className='container'>
           <form className='form' onSubmit={(e) => {
-            e.preventDefault()
             makeComment(e.target[0].value)
           }}>
             <textarea className="form-control w-50" style={{marginLeft:"50px"}}></textarea>

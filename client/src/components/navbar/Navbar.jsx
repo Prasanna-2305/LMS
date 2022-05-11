@@ -44,7 +44,7 @@ export default function NavbarRouter() {
         <div>
          
                 <Router>
-                <Navbar bg="dark" expand="lg">
+                <Navbar bg="dark" expand="true">
                             <Navbar.Brand href="/welcome" className='ms-2'>
                                 <img src={image} height={40} />
                             </Navbar.Brand>

@@ -53,7 +53,7 @@ export default function Registration() {
         else {
             const registerRes = await dispatch(userFetch(values))
             if (registerRes.register) {
-                navigate('/');
+                navigate('/login');
             }
         }
     };

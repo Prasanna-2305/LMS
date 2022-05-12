@@ -45,7 +45,7 @@ export default function NavbarRouter() {
          
                 <Router>
                 <Navbar bg="dark" expand="true">
-                            <Navbar.Brand href="/welcome" className='ms-2'>
+                            <Navbar.Brand href="/" className='ms-2'>
                                 <img src={image} height={40} />
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav"  className='bg-light'/>
@@ -62,17 +62,17 @@ export default function NavbarRouter() {
                                         <Nav.Link as={Link} to={'/showusers'} state={{ user: user }} className='text-light'><FaUser />{user.name}</Nav.Link>
                                         <Nav.Link as={Link} to="/" onClick={handleClick} className='text-light'>Logout<FaSignOutAlt /></Nav.Link>
                                     </Nav>) : (
-                                    <Nav.Link as={Link} to="/" className='text-light' style={{ marginRight: '30px' }}> Login <FaSignInAlt /></Nav.Link>
+                                    <Nav.Link as={Link} to="/login" className='text-light' style={{ marginRight: '30px' }}> Login <FaSignInAlt /></Nav.Link>
                                 )
                                 }
                             </Navbar.Collapse>
                         </Navbar>
 
                     <Routes>
-                        <Route path="/" element={<Login />} />
+                        <Route path="/" element={<Welcome />} />
+                        <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Registration />} />
                         <Route path="/course" element={<Course />} />
-                        <Route path="/welcome" element={<Welcome />} />
                         <Route path="/addcourse" element={<AddCourse />} />
                         <Route path="/viewusers" element={<Viewalluser />} />
                         <Route path="/showusers" element={<ShowUser />} />

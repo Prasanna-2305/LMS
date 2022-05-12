@@ -9,7 +9,7 @@ const apiEnd = 'http://localhost:8001/users';
 export default function EditUser() {
     let location = useLocation()
     const { _id } = useParams()
-    const users = location.state;
+    const users = location.state.user;
     const selector = useSelector((state) => state.users.user)
     const dispatch = useDispatch()
     const [values, setValues] = useState({

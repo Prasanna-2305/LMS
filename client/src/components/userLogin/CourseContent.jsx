@@ -26,7 +26,7 @@ export default function CourseContent() {
 
   useEffect(() => {
     dispatch(getAllCourseById(_id))
-  },[])
+  })
 
 
   const makeComment = (texts) => {

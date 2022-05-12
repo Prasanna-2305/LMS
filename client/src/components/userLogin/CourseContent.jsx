@@ -26,11 +26,11 @@ export default function CourseContent() {
 
   useEffect(() => {
     dispatch(getAllCourseById(_id))
-  })
+  },[])
 
 
   const makeComment = (texts) => {
-    if (texts === '') {
+    if (texts.trim() === '') {
       setBlankcomment(true)
     } else {
       dispatch(commentAction(texts, allCourses._id, users.name, users._id))

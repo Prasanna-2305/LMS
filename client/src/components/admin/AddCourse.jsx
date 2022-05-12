@@ -24,28 +24,44 @@ export default function AddCourse() {
         content,
         video,
     }
+    const [error, setError] = useState({
+        titleErr: "",
+        contentErr: "",
+        videoErr: "",
+    });
 
     const handleSubmit = (e) => {
-        const formData = new FormData();
-        formData.append("title", title);
-        formData.append("content", content);
-        formData.append("video", video);
-        formData.append("image", file)
+        if (title === "") {
+            setError({ titleErr: "title is required" });
+        } else if (content === "") {
+            setError({ contentErr: " content is Required " });
+        } else if (content.length < 10) {
+            setError({ contentErr: " content must have ten characters " });
+        } else if (video === "") {
+            setError({ videoErr: " video is Required " });
+        }
+        else {
+            const formData = new FormData();
+            formData.append("title", title);
+            formData.append("content", content);
+            formData.append("video", video);
+            formData.append("image", file)
 
-        setTitle("");
-        setContent("");
-        setVideo("");
-        e.preventDefault();
-        dispatch(fetchCourse(formData))
+            setTitle("");
+            setContent("");
+            setVideo("");
+            e.preventDefault();
+            dispatch(fetchCourse(formData))
+        }
     };
 
-    const fetchCourse = (formData,_id) => {
+    const fetchCourse = (formData, _id) => {
         return async () => {
             try {
                 const token = localStorage.getItem("Token")
-                const response = await axios.post('/addcourse/create', formData,{
+                const response = await axios.post('/addcourse/create', formData, {
                     headers: {
-                        authorization : token,
+                        authorization: token,
                     }
                 });
                 toast.success('Successfully Added', toastOptions);
@@ -78,6 +94,11 @@ export default function AddCourse() {
                                                     value={title}
                                                     onChange={(e) => setTitle(e.target.value)}
                                                 />
+                                                {error && error.titleErr ? (
+                                                    <p style={{ color: "red", fontSize: "12px" }}> {error.titleErr} </p>
+                                                ) : (
+                                                    ""
+                                                )}
                                             </div>
                                             <div className="form-outline mb-4">
                                                 <textarea
@@ -89,6 +110,11 @@ export default function AddCourse() {
                                                     value={content}
                                                     onChange={(e) => setContent(e.target.value)}
                                                 />
+                                                {error && error.contentErr ? (
+                                                    <p style={{ color: "red", fontSize: "12px" }}> {error.contentErr} </p>
+                                                ) : (
+                                                    ""
+                                                )}
                                             </div>
 
                                             <div className="form-outline mb-4">
@@ -101,6 +127,11 @@ export default function AddCourse() {
                                                     value={video}
                                                     onChange={(e) => setVideo(e.target.value)}
                                                 />
+                                                {error && error.videoErr ? (
+                                                    <p style={{ color: "red", fontSize: "12px" }}> {error.videoErr} </p>
+                                                ) : (
+                                                    ""
+                                                )}
                                             </div>
 
                                             <div className="form-outline mb-4">

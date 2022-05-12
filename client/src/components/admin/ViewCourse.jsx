@@ -32,7 +32,7 @@ export default function ViewCourse() {
                   <tr key={index}>
                     <td>{course.title}</td>
                     <td>{course.video}</td>
-                    <td>{course.file}</td>
+                    <td><img src={course.file} height={30}/></td>
                     <td>
                       <a className="text-danger mr-2"
                         onClick={() => {

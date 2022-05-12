@@ -77,23 +77,23 @@ export default function EditUser() {
                                             <p>Edit your profile</p>
                                             <div className="form-outline mb-4">
                                                 <input
-                                                    id='form2Example10'
-                                                    className='form-control'
-                                                    type='text'
-                                                    placeholder='Name'
-                                                    name='name'
-                                                    value={name}
-                                                    onChange={e => onChange(e)}
-                                                />
-                                            </div>
-                                            <div className="form-outline mb-4">
-                                                <input
                                                     type="email"
                                                     id="form2Example11"
                                                     className="form-control"
                                                     placeholder="Email address"
                                                     name='email'
-                                                    value={email}
+                                                    value={users.email}
+                                                    onChange={e => onChange(e)} disabled
+                                                />
+                                            </div>
+                                            <div className="form-outline mb-4">
+                                                <input
+                                                    id='form2Example10'
+                                                    className='form-control'
+                                                    type='text'
+                                                    placeholder='Name'
+                                                    name='name'
+                                                    value={users.name}
                                                     onChange={e => onChange(e)}
                                                 />
                                             </div>

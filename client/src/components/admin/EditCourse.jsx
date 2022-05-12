@@ -91,7 +91,7 @@ export default function EditCourse() {
                             <div>
                                 <div className="card-body p-md-5 mx-md-4">
                                     <form>
-                                        <p>Add Course</p>
+                                        <p>Edit course</p>
                                         <div className="form-outline mb-4">
                                             <input
                                                 id='form2Example10'

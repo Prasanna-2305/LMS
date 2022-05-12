@@ -78,7 +78,14 @@ router.get("/view/:id", async (req, res) => {
 router.put('/update/:_id', async (req, res) => {
   try {
     //   const userid = 
-    const user = await UserRegister.findByIdAndUpdate(req.params._id, req.body, {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    console.log(hashedPassword,"dsafdsaffds");
+    //   const userid = 
+    const user = await UserRegister.findByIdAndUpdate(req.params._id, {
+      name:req.body.name,
+      password:hashedPassword
+    }, {
       new: true
     })
     res.send(user);

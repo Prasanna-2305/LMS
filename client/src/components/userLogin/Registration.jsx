@@ -47,7 +47,7 @@ export default function Registration() {
             setError({ passwordErr: "password is required  " });
         } else if (password.length < 6) {
             setError({
-                passwordErr: "password  must contain  eight characters ",
+                passwordErr: "password  must contain  six characters ",
             });
         }
         else {

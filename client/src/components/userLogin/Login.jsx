@@ -50,7 +50,7 @@ export default function Login() {
             const result = await dispatch(userLogin(userData))
 
             if (result.login) {
-                navigate('/welcome');
+                navigate('/');
             }
         }
     };

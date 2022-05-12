@@ -8,6 +8,7 @@ import { toastOptions } from '../../utils/Util';
 
 export default function AddCourse() {
     const allCourses = useSelector((state) => state.course.courses);
+    const ref = useRef();
     const dispatch = useDispatch();
 
     const [title, setTitle] = useState("");
@@ -15,7 +16,6 @@ export default function AddCourse() {
     const [video, setVideo] = useState("");
     const [file, setFile] = useState("");
 
-    const ref = useRef();
 
     const onChange = e => {
         setFile(e.target.files[0]);
@@ -54,8 +54,8 @@ export default function AddCourse() {
             setVideo("");
             e.preventDefault();
             dispatch(fetchCourse(formData))
+            ref.current.value="";
         }
-        ref.current.value=" "
     };
 
     const fetchCourse = (formData, _id) => {
@@ -143,7 +143,7 @@ export default function AddCourse() {
                                                     id="form2Example32"
                                                     className='form-control'
                                                     name='file'
-                                                    ref={ref} 
+                                                    ref={ref}
                                                     filename="image"
                                                     onChange={onChange}
                                                 />

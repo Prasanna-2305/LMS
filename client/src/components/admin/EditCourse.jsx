@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
@@ -14,6 +14,7 @@ export default function EditCourse() {
     const {_id} = useParams();
     const courses = location.state.course;
     const selector = useSelector((state)=> state.course.courses)
+    const ref = useRef();
     const dispatch = useDispatch();
     const [userData, setUserData] = useState({
         title:"",
@@ -59,6 +60,7 @@ export default function EditCourse() {
         formData.append("image", file)
 
         dispatch(updateCourse(formData))
+        ref.current.value="";
     }
 
     const getAllCourseById = () => {
@@ -133,6 +135,7 @@ export default function EditCourse() {
                                                 id="form2Example32"
                                                 className='form-control'
                                                 name='file'
+                                                ref={ref}
                                                 filename="image"
                                                 onChange={e => onFileChange(e)}
                                                 />

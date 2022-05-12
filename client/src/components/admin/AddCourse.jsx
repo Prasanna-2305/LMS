@@ -15,6 +15,8 @@ export default function AddCourse() {
     const [video, setVideo] = useState("");
     const [file, setFile] = useState("");
 
+    const ref = useRef();
+
     const onChange = e => {
         setFile(e.target.files[0]);
     }
@@ -53,6 +55,7 @@ export default function AddCourse() {
             e.preventDefault();
             dispatch(fetchCourse(formData))
         }
+        ref.current.value=" "
     };
 
     const fetchCourse = (formData, _id) => {
@@ -140,6 +143,7 @@ export default function AddCourse() {
                                                     id="form2Example32"
                                                     className='form-control'
                                                     name='file'
+                                                    ref={ref} 
                                                     filename="image"
                                                     onChange={onChange}
                                                 />

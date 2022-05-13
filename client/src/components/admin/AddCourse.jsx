@@ -33,13 +33,13 @@ export default function AddCourse() {
     });
 
     const handleSubmit = (e) => {
-        if (title.trim() === "") {
+        if (title === "") {
             setError({ titleErr: "title is required" });
-        } else if (content.trim() === "") {
+        } else if (content === "") {
             setError({ contentErr: " content is Required " });
         } else if (content.length < 10) {
             setError({ contentErr: " content must have ten characters " });
-        } else if (video.trim() === "") {
+        } else if (video === "") {
             setError({ videoErr: " video is Required " });
         }
         else {

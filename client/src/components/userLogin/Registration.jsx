@@ -35,15 +35,15 @@ export default function Registration() {
         const emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
             email
         );
-        if (name.trim() === "") {
+        if (name === "") {
             setError({ nameErr: "name is required " });
         } else if (name.length < 3) {
             setError({ nameErr: " name must have three characters " });
-        } else if (email.trim() === "") {
+        } else if (email === "") {
             setError({ emailErr: " Email is Required " });
         } else if (!emailCheck) {
             setError({ emailErr: " Enter a valid Email" });
-        } else if (password.trim() === "") {
+        } else if (password === "") {
             setError({ passwordErr: "password is required  " });
         } else if (password.length < 6) {
             setError({

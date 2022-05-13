@@ -51,7 +51,7 @@ export default function EditUser() {
     const { name, password } = values;
     if (name === "") {
       setError({ nameErr: "name is required " });
-    } else if (name.length < 3) {
+    } else if (name?.length < 3) {
       setError({ nameErr: " name must have three characters " });
     } else if (password === "") {
       setError({ passwordErr: "password is required  " });

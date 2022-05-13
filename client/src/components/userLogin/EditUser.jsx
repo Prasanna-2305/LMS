@@ -19,6 +19,11 @@ export default function EditUser() {
     })
     const { name, email, password } = values;
 
+    const [error, setError] = useState({
+        nameErr: "",
+        passwordErr: "",
+    });
+
     const onChange = e => {
         setValues({ ...values, [e.target.name]: e.target.value });
     }
@@ -43,7 +48,21 @@ export default function EditUser() {
 
     const onSubmit = e => {
         e.preventDefault();
-        dispatch(updateUser())
+        const { name, password } = values;
+        if (name.trim() === "") {
+            setError({ nameErr: "name is required " });
+        } else if (name.length < 3) {
+            setError({ nameErr: " name must have three characters " });
+        } else if (password.trim() === "") {
+            setError({ passwordErr: "password is required  " });
+        } else if (password.length < 6) {
+            setError({
+                passwordErr: "password  must contain six characters ",
+            });
+        }
+        else {
+            dispatch(updateUser())
+        }
     }
     const getAllUserById = () => {
         return async (dispatch) => {
